@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EleganBusiness</title>
+    <link rel="icon" href="images/elegan.png" type="image/png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsA36VPVwEP9352fIj7s8GTEbzJZaBmCQ&callback=initMap"
+        async defer></script>
+    <script src="js/scripts.js" defer></script>
+</head>
+
+<body onload="window.scrollTo(0, 0);">
+    <header id="main-header">
+        <div class="container">
+            <div class="logo">
+                <a id="logo-link" href="#home"><img src="images/elegan.png" alt="LOGO"></a>
+            </div>
+            <div class="header-center">
+                <h1>EleganBusiness</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Ana Sayfa</a></li>
+                    <li><a href="#products">Ürünler</a></li>
+                    <li><a href="#about">Hakkımızda</a></li>
+                    <li><a href="#contact">İletişim</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="banner">
+        <div class="banner-content">
+            <h1>Hoş Geldiniz EleganBusiness</h1>
+            <h2>Diyarbakır'ın Kalbinde Dünya Markaları</h2>
+            <p>Kalite ve Şıklığın Adresi</p>
+            <p>Dünyaca ünlü markaları en uygun fiyatlarla sizlere sunuyoruz. Modanın nabzını tutan koleksiyonlarımız ile
+                her zaman bir adım önde olun. Şimdi keşfedin ve stilinizi yeniden tanımlayın.</p>
+        </div>
+    </section>
+
+    <section id="brand-background" class="brand-background">
+        <img src="images/armani.jpg" alt="Armani">
+        <img src="images/dolcegabbana.jpg" alt="Dolce & Gabbana">
+        <img src="images/lv.jpg" alt="Louis Vuitton">
+        <img src="images/tommy hilfiger.jpg" alt="Tommy Hilfiger">
+        <img src="images/lacoste.jpg" alt="Lacoste">
+    </section>
+
+    <section id="products" class="products">
+        <h2>Popüler Ürünler</h2>
+        <div class="product-carousel">
+            <div class="carousel-inner"></div>
+            <button class="carousel-control prev">&lt;</button>
+            <button class="carousel-control next">&gt;</button>
+        </div>
+        <h2>Tüm Ürünler</h2>
+        <div class="all-products">
+            <div class="product-grid"></div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>Hakkımızda</h2>
+        <p>EleganBusiness, kaliteli ve şık giyim ürünlerini müşterilerine sunan bir mağazadır. Dünyaca ünlü markaları en
+            uygun fiyatlarla sizlere sunuyoruz. Modanın nabzını tutan koleksiyonlarımız ile her zaman bir adım önde
+            olun. Şimdi keşfedin ve stilinizi
+            yeniden tanımlayın.</p>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>İletişim</h2>
+        <p>Bize ulaşmak için aşağıdaki butonları kullanabilirsiniz...</p>
+        <div class="contact-buttons">
+            <a href="https://wa.me/905393718906" class="button whatsapp-button">
+                <i class="fab fa-whatsapp"></i> WhatsApp ile İletişime Geç
+            </a>
+            <a href="https://www.instagram.com/eleganbusiness/" class="button instagram-button">
+                <i class="fab fa-instagram"></i> Instagram'da İletişime Geç
+            </a>
+        </div>
+        <div class="contact-explanations">
+            <p><i class="fab fa-whatsapp"></i> WhatsApp ile hızlıca mesaj gönderin.</p>
+            <p><i class="fab fa-instagram"></i> Instagram'da bizi takip edin ve mesaj gönderin.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Elegan Business. Tüm hakları Yusuf Çiya Andan tarafından saklıdır.</p>
+            <p>Bu site <a href="https://github.com/muguremre" target="_blank">Muhammed Uğur Emre</a> tarafından
+                yapılmıştır. Sahibi: <strong>Appdata</strong></p>
+        </div>
+    </footer>
+
+    <div id="mobile-nav" class="mobile-nav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#home" onclick="closeNav()">Ana Sayfa</a>
+        <a href="#products" onclick="closeNav()">Ürünler</a>
+        <a href="#about" onclick="closeNav()">Hakkımızda</a>
+        <a href="#contact" onclick="closeNav()">İletişim</a>
+    </div>
+
+    <a id="whatsapp-link" class="whatsapp-float" onclick="showWhatsAppMessage()">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+    </a>
+    <div id="whatsapp-message" class="whatsapp-message">
+        <span class="text" onclick="window.open('https://wa.me/905393718906')">Elegan Business WhatsApp hattı</span>
+        <span class="closebtn" onclick="closeWhatsAppMessage()">&times;</span>
+    </div>
+
+    <script>
+        function initMap() {
+            var location = {
+                lat: 37.916594951078565,
+                lng: 40.152212650720166
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: location,
+                zoom: 15
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
